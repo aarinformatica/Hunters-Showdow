@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br" >
+<head>
+  <meta charset="UTF-8">
+  <title>Hunter&#39;s Showdow!</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hunter's Showdow!</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Tela Inicial -->
+    <div id="start-screen">
+        <h1>Hunter's Showdow</h1>
+        <button id="start-button">Iniciar Jogo</button>
+    </div>
+
+    <!-- Container Principal -->
+    <div id="main-container" style="display: none;">
+        <!-- Informações à esquerda -->
+        <div id="info-section">
+            <h2>Controles</h2>
+            <p>Movimente a nave:</p>
+            <ul>
+                <li>⬆️ - Cima</li>
+                <li>⬇️ - Baixo</li>
+                <li>⬅️ - Esquerda</li>
+                <li>➡️ - Direita</li>
+            </ul>
+            <p><b>Espaço:</b> Atirar</p>
+        </div>
+        <!-- Área do jogo -->
+        <p><div id="game-area"></p>
+            <!-- Área com desfoque -->
+            <div class="blur-area">
+                <!-- Conteúdo opcional abaixo da área com desfoque -->
+            </div>
+            
+            <!-- Inimigo posicionado acima -->
+            <div class="enemy" id="enemy-1"></div>
+      
+            <!-- Nave do jogador -->
+            <img id="player" src="https://raw.githubusercontent.com/aarinformatica/labirintodoca-ador/refs/heads/main/nave2.gif" alt="Nave do Caçador">
+        </div>
+
+        <!-- Pontuação à direita -->
+        <div id="score-section">
+            <h2>Pontuação</h2>
+            <p>Pontos: <span id="score">0</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>

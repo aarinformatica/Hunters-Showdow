@@ -1,0 +1,294 @@
+/* Estilo global */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Comic Sans MS', sans-serif;
+    background: url('https://raw.githubusercontent.com/aarinformatica/huntersshowdow/refs/heads/main/fundo.jpeg') no-repeat center center/cover;
+    color: white;
+    overflow: hidden;
+}
+
+/* Tela inicial */
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('https://raw.githubusercontent.com/aarinformatica/huntersshowdow/refs/heads/main/fundo.jpeg') no-repeat center center/cover;
+    text-align: center;
+}
+
+#start-screen h1 {
+    font-size: 3rem;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #fff;
+    margin-bottom: 20px;
+}
+
+#start-button {
+    padding: 10px 20px;
+    font-size: 1.5rem;
+    color: white;
+    background: linear-gradient(45deg, #ff8800, #ffcc00);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 0 10px #ff8800;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#start-button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ffcc00;
+}
+
+/* Layout principal */
+#main-container {
+    display: flex;
+    height: 100vh;
+    background: url('https://raw.githubusercontent.com/aarinformatica/huntersshowdow/refs/heads/main/fundo.jpeg') no-repeat center center/cover;
+    color: white;
+}
+
+/* Informações à esquerda */
+#info-section {
+    width: 20%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-right: 2px solid;
+    border-image: linear-gradient(to bottom, #ffcc00, #00aaff) 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#info-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+#info-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+#info-section li {
+    margin-bottom: 5px;
+}
+
+/* Área do jogo */
+#game-area {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 4px solid transparent;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    animation: neon-border 3s linear infinite;
+}
+
+/* Pontos de coleta */
+.point {
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #ffffff 50%, #ffeb3b 100%);
+    position: absolute;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite ease-in-out;
+    z-index: 2;
+}
+
+/* Jogador */
+#player {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    z-index: 5;
+    transform: translate(0, 0);
+    image-rendering: pixelated;
+}
+
+/* Pontuação à direita */
+#score-section {
+    width: 20%;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-left: 2px solid;
+    border-image: linear-gradient(to bottom, #ffcc00, #00aaff) 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#score-section h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+/* Animação de pulsar */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+}
+
+/* Animação da borda neon */
+@keyframes neon-border {
+    0% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 10px #ffcc00, 0 0 20px #00aaff, 0 0 30px #ffcc00;
+    }
+    50% {
+        border-color: #00aaff;
+        box-shadow: 0 0 15px #00aaff, 0 0 25px #ffcc00, 0 0 35px #00aaff;
+    }
+    100% {
+        border-color: #ffcc00;
+        box-shadow: 0 0 10px #ffcc00, 0 0 20px #00aaff, 0 0 30px #ffcc00;
+    }
+}
+/* Estilo dos tiros */
+.bullet {
+    width: 6px;
+    height: 20px;
+    position: absolute;
+    background: radial-gradient(circle, red 30%, yellow 70%);
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00aaff, 0 0 20px #00aaff;
+    z-index: 3; /* Garantir que fique acima dos elementos principais */
+}
+/* Inimigo simples para teste */
+/* Estilo inicial para o inimigo */
+.enemy {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    background: url('https://github.com/aarinformatica/labirintodoca-ador/blob/main/inimigo1.gif') no-repeat center center / contain;
+    z-index: 5;
+    transition: opacity 0.3s ease; /* Desvanecimento suave */
+  border-radius: 100%;
+}
+
+/* Adiciona a classe explosão */
+.enemy.explode {
+    animation: explosion 0.6s ease-out forwards; /* Executa a explosão */
+}
+
+/* Keyframes para a animação de explosão */
+@keyframes explosion {
+    0% {
+        transform: scale(1); /* Começa no tamanho original */
+        opacity: 1;
+        box-shadow: 0 0 15px red, 0 0 30px orange;
+    }
+    50% {
+        transform: scale(1.5); /* Aumenta o tamanho */
+        opacity: 0.8;
+        box-shadow: 0 0 30px yellow, 0 0 60px red; /* Intensifica o brilho */
+    }
+    100% {
+        transform: scale(2); /* Tamanho máximo */
+        opacity: 0; /* Desaparece gradualmente */
+        box-shadow: 0 0 10px rgba(255, 0, 0, 0);
+    }
+}
+/* Partículas mais realistas */
+.particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, yellow, red);
+    border-radius: 50%; /* Partículas em formato circular */
+    box-shadow: 0 0 8px yellow, 0 0 15px red; /* Luzes intensas */
+    animation: particle-animation 1s ease-out forwards; /* Animação dinâmica */
+    z-index: 6; /* Acima dos outros elementos */
+    opacity: 1; /* Partícula inicialmente visível */
+}
+
+/* Animação realista de dispersão */
+@keyframes particle-animation {
+    0% {
+        transform: scale(1) translate(0, 0); /* Tamanho inicial no centro da explosão */
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5) translate(var(--x), var(--y)); /* Expansão parcial */
+        opacity: 0.8; /* Mantém um brilho intermediário */
+    }
+    100% {
+        transform: scale(0.8) translate(calc(var(--x) * 2), calc(var(--y) * 2)); /* Dispersão completa */
+        opacity: 0; /* Desaparece ao final */
+    }
+}
+/*movimento do inimigo e jogador*/
+/* Área do jogo */
+/*#game-area {
+    position: relative;
+    width: 70%;
+    height: 80%;
+    overflow: hidden;
+}*/
+
+/* Jogador */
+#player {
+    width: 50px;
+    height: auto;
+    position: absolute;
+    z-index: 5;
+}
+
+/* Inimigo */
+.enemy {
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    background: url('https://raw.githubusercontent.com/aarinformatica/labirintodoca-ador/main/inimigo5.gif') no-repeat center center / contain;
+    border-radius: 50%;
+    z-index: 5;
+}
+/*teste para movimento*/
+/* Área do jogo */
+#game-area {
+    position: relative;
+    width: 100%;
+    height: 100%px;
+    overflow: hidden;
+    margin: 0 auto;
+    border: 2px solid white;
+}
+
+/* Jogador (nave do caçador) */
+/*#player {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background: url('https://raw.githubusercontent.com/aarinformatica/labirintodoca-ador/refs/heads/main/nave2.gif') no-repeat center center / contain;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+#enemy {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    background: url('https://raw.githubusercontent.com/aarinformatica/labirintodoca-ador/main/inimigo5.gif') no-repeat center center / contain;
+    top: 10%;
+    left: 10%;
+    box-shadow: 0 0 15px red, 0 0 30px orange;
+}
+*/
